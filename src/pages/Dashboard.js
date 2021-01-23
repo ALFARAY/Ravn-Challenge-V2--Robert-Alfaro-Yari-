@@ -2,10 +2,10 @@ import React from "react";
 
 import { BrowserRouter } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
-import client from "../complements/Client";
-import People from "../complements/People";
-import Navbar from "../complements/Navbar";
-import Route from "../complements/Router";
+import client from "../components/Client";
+import People from "../components/People";
+import Navbar from "../components/Navbar";
+import Route from "../components/Router";
 // import DetailsPeople from "../complements/DetailsPeople";
 import "./dashboard.css";
 
