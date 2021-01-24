@@ -36,6 +36,8 @@ export default function People() {
     return <div className="main-loading">Loading...</div>;
   }
 
+  console.log(data);
+
   return (
     <>
       <section className="main-character__item-left">

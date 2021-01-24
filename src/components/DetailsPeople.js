@@ -3,28 +3,32 @@ import { useParams } from "react-router-dom";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
-const STARWARS_QUERY = gql`
-  query {
-    person(id: "ZmlsbXM6MQ==") {
-      id
-      name
-      eyeColor
-      hairColor
-      skinColor
-      birthYear
-      vehicleConnection {
-        vehicles {
-          id
-          name
+export default function DetailsPeople() {
+  const STARWARS_QUERY = gql`
+    query startwars($id: ID!) {
+      person(id: $id) {
+        id
+        name
+        eyeColor
+        hairColor
+        skinColor
+        birthYear
+        vehicleConnection {
+          vehicles {
+            id
+            name
+          }
         }
       }
     }
-  }
-`;
+  `;
 
-export default function DetailsPeople() {
   let { id } = useParams();
-  const { data, error, loading } = useQuery(STARWARS_QUERY);
+  const numero = id;
+
+  const { data, error, loading } = useQuery(STARWARS_QUERY, {
+    variables: { id: numero },
+  });
 
   if (error) {
     return <div className="main-error">Failed to Load data</div>;
@@ -44,7 +48,7 @@ export default function DetailsPeople() {
             <thead>
               <tr>
                 <th className="main-table__th" colSpan="2">
-                  General Information {id}
+                  General Information
                 </th>
               </tr>
             </thead>
