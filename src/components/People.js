@@ -36,8 +36,6 @@ export default function People() {
     return <div className="main-loading">Loading...</div>;
   }
 
-  console.log(data);
-
   return (
     <>
       <section className="main-character__item-left">
@@ -65,7 +63,6 @@ export default function People() {
           className="main-button"
           onClick={() => {
             const { endCursor } = data.allPeople.pageInfo;
-
             fetchMore({
               variables: { after: endCursor },
               updateQuery: (prevResult, { fetchMoreResult }) => {

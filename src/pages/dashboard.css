@@ -119,6 +119,7 @@ button {
   vertical-align: middle;
   text-align: left;
   font-size: 1rem;
+  padding-top: 1em;
 }
 
 .main-table__td {

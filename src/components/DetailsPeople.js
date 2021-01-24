@@ -24,10 +24,9 @@ export default function DetailsPeople() {
   `;
 
   let { id } = useParams();
-  const numero = id;
 
   const { data, error, loading } = useQuery(STARWARS_QUERY, {
-    variables: { id: numero },
+    variables: { id: id },
   });
 
   if (error) {
