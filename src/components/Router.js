@@ -6,6 +6,7 @@ export default function Router() {
   return (
     <>
       <Switch>
+        {/* Sending variable by url to child component */}
         <Route path="/:id" children={<DetailsPeople />} />
       </Switch>
     </>

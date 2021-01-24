@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/react-hooks";
 
 export default function DetailsPeople() {
   const STARWARS_QUERY = gql`
+    # Search the characteristics of the character by id
     query startwars($id: ID!) {
       person(id: $id) {
         id
@@ -23,19 +24,23 @@ export default function DetailsPeople() {
     }
   `;
 
+  // The parameter sent by url is received and stored in a variable
   let { id } = useParams();
 
   const { data, error, loading } = useQuery(STARWARS_QUERY, {
+    // the receiver id is assigned by url to search for the character
     variables: { id: id },
   });
-
+  // if something went wrong when consulting the information
   if (error) {
     return <div className="main-error">Failed to Load data</div>;
   }
+  // If there is an error or there is no data
   if (loading || !data) {
     return <div className="main-loading">Loading...</div>;
   }
 
+  // Objects are unstructured to be iterated
   const characteristics = data["person"];
   const vehicles = data.person.vehicleConnection.vehicles;
 
@@ -78,6 +83,7 @@ export default function DetailsPeople() {
               </tr>
             </thead>
             <tbody>
+              {/* foreach to display each character's vehicles */}
               {vehicles.map((value) => {
                 return (
                   <tr className="main-table__tr" key={value.id}>

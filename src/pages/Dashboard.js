@@ -6,7 +6,6 @@ import client from "../components/Client";
 import People from "../components/People";
 import Navbar from "../components/Navbar";
 import Route from "../components/Router";
-// import DetailsPeople from "../complements/DetailsPeople";
 import "./dashboard.css";
 
 function Dashboard() {
@@ -15,8 +14,8 @@ function Dashboard() {
       <BrowserRouter>
         <Navbar />
         <main className="main-character">
-          <People />
-          <Route />
+          <People /> {/* Sidebar of list of character */}
+          <Route /> {/* component where character details are displayed */}
         </main>
       </BrowserRouter>
     </ApolloProvider>
